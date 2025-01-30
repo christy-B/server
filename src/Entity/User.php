@@ -86,14 +86,14 @@ class User
         return $this;
     }
 
-    public function getCreatdeAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->creatdeAt;
     }
 
-    public function setCreatdeAt(\DateTimeImmutable $creatdeAt): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): static
     {
-        $this->creatdeAt = $creatdeAt;
+        $this->creatdeAt = $createdAt;
 
         return $this;
     }

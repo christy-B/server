@@ -42,7 +42,7 @@ final class UserController extends AbstractController
         }
 
         // Définir la date de création
-        $user->setCreatdeAt(new \DateTimeImmutable());
+        $user->setCreatedAt(new \DateTimeImmutable());
 
         // Valider les données
         $errors = $validator->validate($user);
