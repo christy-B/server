@@ -64,4 +64,23 @@ final class UserController extends AbstractController
 
 
     //modifier un utilisateur
+    //supprimer un utilisateur
+    #[Route('/api/users/{id}', name: 'delete_user', methods: ['DELETE'])]
+    public function deleteUser(int $id, EntityManagerInterface $manager): JsonResponse
+    {
+        // Récupérer l'utilisateur par son ID
+        $user = $manager->getRepository(User::class)->find($id);
+
+        // Vérifier si l'utilisateur existe
+        if (!$user) {
+            return new JsonResponse(['error' => 'Utilisateur non trouvé.'], Response::HTTP_NOT_FOUND);
+        }
+
+        // Supprimer l'utilisateur
+        $manager->remove($user);
+        $manager->flush();
+
+        // Retourner une réponse de succès
+        return new JsonResponse(['message' => 'Utilisateur supprimé avec succès.'], Response::HTTP_OK);
+    }
 }
