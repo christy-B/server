@@ -25,12 +25,12 @@ class User
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: "Le nom est obligatoire.")]
+    #[Assert\NotBlank(message: "Le prenom est obligatoire.")]
     #[Assert\Length(
         min: 2,
         max: 30,
-        minMessage: "Le nom doit contenir au moins {{ limit }} caractères.",
-        maxMessage: "Le nom ne peut pas dépasser {{ limit }} caractères."
+        minMessage: "Le prenom doit contenir au moins {{ limit }} caractères.",
+        maxMessage: "Le prenom ne peut pas dépasser {{ limit }} caractères."
     )]
     private ?string $firstname = null;
 
